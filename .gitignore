@@ -1,4 +1,7 @@
 project/
+dist/
 
 # IDEA specific
 .idea/
+*.iml
+
