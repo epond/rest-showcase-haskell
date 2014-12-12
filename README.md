@@ -1,14 +1,19 @@
 Haskell Rest Showcase
 =================================
 
-Basic
+Build and run
+-----
+
+`cabal run` will build the module and run it. It may give a message telling you what dependencies need to be installed first using `cabal install`.
+
+Basic Endpoint
 -----
 
 `POST /basic`
 
 Post a string in the request body and it will respond with the same string in uppercase
 
-Showcase
+Showcase Endpoint
 --------
 
 `POST /showcase`
