@@ -5,7 +5,7 @@ import Happstack.Server
 import Happstack.Server.Types
 
 main :: IO ()
-main = simpleHTTP nullConf $ msum
+main = simpleHTTP (nullConf { port = 9000}) $ msum
     [ dir "basic"    $ do method POST
                           ok "Hello, basic!"
     , dir "showcase" $ do method POST
