@@ -5,6 +5,8 @@ So this is not complete yet. It doesn't conform with the other REST showcases. I
 and its web frameworks. Happstack seems an ok starting point but that might change because Yesod looks pretty cool,
 but it has a ton of boilerplate, and I haven't looked at Snap yet.
 
+ps. I love Haskell!!!
+
 Build and run
 -----
 
