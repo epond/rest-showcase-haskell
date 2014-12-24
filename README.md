@@ -1,6 +1,10 @@
 Haskell Rest Showcase
 =================================
 
+So this is not complete yet. It doesn't conform with the other REST showcases. I'm still getting to grips with Haskell
+and its web frameworks. Happstack seems an ok starting point but that might change because Yesod looks pretty cool,
+but it has a ton of boilerplate, and I haven't looked at Snap yet.
+
 Build and run
 -----
 
