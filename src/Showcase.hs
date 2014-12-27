@@ -7,8 +7,14 @@ import Happstack.Server.Types
 main :: IO ()
 main = simpleHTTP (nullConf { port = 9000}) $ msum
     [ dir "basic"    $ do method POST
-                          ok "Hello, basic!"
+                          basicHandler
     , dir "showcase" $ do method POST
-                          ok "Hello, showcase!"
+                          showcaseHandler
     , seeOther "" "Usage: POST to either /basic or /showcase"
     ]
+
+basicHandler :: ServerPart String
+basicHandler = ok "Hello, basic!"
+
+showcaseHandler :: ServerPart String
+showcaseHandler = ok "Hello, showcase!"
