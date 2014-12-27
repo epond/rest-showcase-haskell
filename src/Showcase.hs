@@ -14,7 +14,15 @@ main = simpleHTTP (nullConf { port = 9000}) $ msum
     ]
 
 basicHandler :: ServerPart String
-basicHandler = ok "Hello, basic!"
+basicHandler = do req <- askRq
+                  maybeBody <- takeRequestBody req
+                  ok $ bodyToString maybeBody
+
+bodyToString :: Maybe RqBody -> String
+bodyToString body =
+    case body of
+        Just rqbody -> show . unBody $ rqbody
+        Nothing     -> ""
 
 showcaseHandler :: ServerPart String
 showcaseHandler = ok "Hello, showcase!"
