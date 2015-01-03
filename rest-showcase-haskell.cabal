@@ -8,4 +8,5 @@ executable haskell-exp
   hs-source-dirs:  src
   build-depends:   base,
                    scotty,
-                   http-types
+                   http-types,
+                   text

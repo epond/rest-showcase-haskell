@@ -5,8 +5,9 @@ module Main where
 import Web.Scotty
 
 import Data.Monoid (mconcat)
+import qualified Data.Text.Lazy.Encoding as TE
 
 main = scotty 3000 $ do
-  get "/:word" $ do
-    beam <- param "word"
-    html $ mconcat ["<h1>Scotty, ", beam, " me up!</h1>"]
+  post "" $ do
+    rqBody <- body
+    html $ mconcat ["<h1>Scotty, ", TE.decodeUtf8 rqBody, " me up!</h1>"]
