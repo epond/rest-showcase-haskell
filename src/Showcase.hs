@@ -3,6 +3,7 @@ module Main where
 import Control.Monad
 import Happstack.Server
 import Happstack.Server.Types
+import qualified Data.Text.Lazy.Encoding as E
 
 main :: IO ()
 main = simpleHTTP (nullConf { port = 9000}) $ msum
@@ -21,7 +22,7 @@ basicHandler = do req <- askRq
 bodyToString :: Maybe RqBody -> String
 bodyToString body =
     case body of
-        Just rqbody -> show . unBody $ rqbody
+        Just rqbody -> show . E.decodeUtf8 . unBody $ rqbody
         Nothing     -> ""
 
 showcaseHandler :: ServerPart String

@@ -8,4 +8,5 @@ executable haskell-exp
   hs-source-dirs:  src
   build-depends:   base,
                    containers,
-                   happstack-server
+                   happstack-server,
+                   text
