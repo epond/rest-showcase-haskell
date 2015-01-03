@@ -4,8 +4,8 @@ Build-Type:        Simple
 cabal-version:     >= 1.2
 
 executable haskell-exp
-  main-is:         Showcase.hs
+  main-is:         Scotty.hs
   hs-source-dirs:  src
   build-depends:   base,
-                   containers,
-                   happstack-server
+                   scotty,
+                   http-types
