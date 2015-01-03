@@ -10,7 +10,7 @@ main = simpleHTTP (nullConf { port = 9000}) $ msum
                           basicHandler
     , dir "showcase" $ do method POST
                           showcaseHandler
-    , seeOther "" "Usage: POST to either /basic or /showcase"
+    , defaultHandler
     ]
 
 basicHandler :: ServerPart String
@@ -26,3 +26,6 @@ bodyToString body =
 
 showcaseHandler :: ServerPart String
 showcaseHandler = ok "Hello, showcase!"
+
+defaultHandler :: ServerPart String
+defaultHandler = badRequest "Usage: POST to either /basic or /showcase"
