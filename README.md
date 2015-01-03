@@ -2,13 +2,16 @@ Haskell Rest Showcase
 =================================
 
 So this is not complete yet. It doesn't conform with the other REST showcases. I'm still getting to grips with Haskell
-and its web frameworks. Happstack seems an ok starting point but that might change because Yesod looks pretty cool,
-but it has a ton of boilerplate, and I haven't looked at Snap yet.
+and its web frameworks. Happstack seemed an ok starting point but I ran into problems getting the unencoded request body.
+I've switched to Scotty and it's proving to be a good choice.
 
 Build and run
 -----
 
-`cabal run` will build the module and run it. It may give a message telling you what dependencies need to be installed first using `cabal install`.
+`cabal run` will build the module and run it. It may give a message telling you what dependencies need to be installed
+first using `cabal install`.
+
+`cabal repl` will fire up a repl with the project loaded so you can do things like check types and generally poke around.
 
 Basic Endpoint
 -----
