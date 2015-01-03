@@ -9,4 +9,5 @@ executable haskell-exp
   build-depends:   base,
                    scotty,
                    http-types,
-                   text
+                   text,
+                   aeson
