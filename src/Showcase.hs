@@ -28,7 +28,7 @@ textToMD5 original = "MD5 goes here"
 
 -- Type representing the input JSON message
 data MD5Request =
-  MD5Request { input :: !Text
+  MD5Request { input :: Text
            } deriving (Show,Generic)
 
 instance FromJSON MD5Request
@@ -36,8 +36,8 @@ instance ToJSON MD5Request
 
 -- Type representing the JSON response message
 data MD5Response =
-  MD5Response { md5            :: !Text
-              , originalString :: !Text
+  MD5Response { md5            :: Text
+              , originalString :: Text
            } deriving (Show,Generic)
 
 instance FromJSON MD5Response
