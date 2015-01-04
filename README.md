@@ -1,10 +1,6 @@
 Haskell Rest Showcase
 =================================
 
-So this is not complete yet. It doesn't conform with the other REST showcases. I'm still getting to grips with Haskell
-and its web frameworks. Happstack seemed an ok starting point but I ran into problems getting the unencoded request body.
-I've switched to Scotty and it's proving to be a good choice.
-
 Build and run
 -----
 
