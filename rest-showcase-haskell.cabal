@@ -10,4 +10,5 @@ executable haskell-exp
                    scotty,
                    http-types,
                    text,
-                   aeson
+                   aeson,
+                   bytestring

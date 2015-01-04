@@ -9,6 +9,9 @@ import Data.Text.Lazy
 import Data.Aeson
 import GHC.Generics
 
+import qualified Data.ByteString.Lazy as B
+
+main :: IO ()
 main = scotty 9000 $ do
   post "/basic" $ do
     rqBody <- body
@@ -18,6 +21,7 @@ main = scotty 9000 $ do
     rqBody <- body
     Web.Scotty.json $ ((showcaseHandler rqBody) :: MD5Response)
 
+showcaseHandler :: B.ByteString -> MD5Response
 showcaseHandler x =
   case ((eitherDecode x) :: Either String MD5Request) of
     Right (MD5Request original) -> MD5Response (textToMD5 original) original
