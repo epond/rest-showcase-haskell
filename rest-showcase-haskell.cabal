@@ -11,4 +11,5 @@ executable haskell-exp
                    http-types,
                    text,
                    aeson,
-                   bytestring
+                   bytestring,
+                   pureMD5

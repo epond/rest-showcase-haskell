@@ -8,7 +8,7 @@ import Data.Text.Lazy.Encoding
 import Data.Text.Lazy
 import Data.Aeson
 import GHC.Generics
-
+import qualified Data.Digest.Pure.MD5 as M
 import qualified Data.ByteString.Lazy as B
 
 main :: IO ()
@@ -19,16 +19,17 @@ main = scotty 9000 $ do
 
   post "/showcase" $ do
     rqBody <- body
-    Web.Scotty.json $ ((showcaseHandler rqBody) :: MD5Response)
+    Web.Scotty.json $ showcaseHandler rqBody
 
 showcaseHandler :: B.ByteString -> MD5Response
 showcaseHandler x =
   case ((eitherDecode x) :: Either String MD5Request) of
     Right (MD5Request original) -> MD5Response (textToMD5 original) original
-    Left  err                   -> MD5Response "n/a" (pack err)
+    Left  err                   -> MD5Response "n/a" (pack err) -- todo: represent error better
 
 textToMD5 :: Text -> Text
-textToMD5 original = "MD5 goes here"
+textToMD5 original = toUpper . pack . show . M.md5 . encodeUtf8 $ original
+
 
 -- Type representing the input JSON message
 data MD5Request =
