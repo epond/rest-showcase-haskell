@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
 
-module Main where
+module Showcase where
 
 import Web.Scotty
 
@@ -11,8 +11,8 @@ import GHC.Generics
 import qualified Data.Digest.Pure.MD5 as M
 import qualified Data.ByteString.Lazy as B
 
-main :: IO ()
-main = scotty 9000 $ do
+mainFunc :: IO ()
+mainFunc = scotty 9000 $ do
   post "/basic" $ do
     rqBody <- body
     html $ (toUpper . decodeUtf8) rqBody
