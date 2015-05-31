@@ -28,7 +28,7 @@ showcaseHandler x =
     Left  err                   -> MD5Response "n/a" (pack err) -- todo: represent error better
 
 textToMD5 :: Text -> Text
-textToMD5 original = toUpper . pack . show . M.md5 . encodeUtf8 $ original
+textToMD5 = toUpper . pack . show . M.md5 . encodeUtf8
 
 
 -- Type representing the input JSON message
