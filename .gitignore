@@ -1,7 +1,6 @@
 project/
 dist/
-.cabal-sandbox/
-cabal.sandbox.config
+.stack-work/
 
 # IDEA specific
 .idea/
